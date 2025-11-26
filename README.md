@@ -55,7 +55,7 @@ Torch + OpenCV
 
 🚀 Getting Started (Local Development)
 1️⃣ Clone project
-git clone https://github.com/yourusername/deep-scan
+git clone https://github.com/Bibhanshu16/Deepfake-ai-video-detector
 cd deep-scan
 
 2️⃣ Start the AI Backend (Python + FastAPI)
