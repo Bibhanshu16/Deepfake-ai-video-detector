@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+transformers
+torch
+torchvision
+torchaudio
+pillow
+opencv-python
+python-multipart
