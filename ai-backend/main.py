@@ -1,5 +1,6 @@
 from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
 from transformers import AutoImageProcessor, SiglipForImageClassification
 from PIL import Image
 import torch
@@ -10,6 +11,21 @@ import tempfile
 import os
 
 app = FastAPI()
+
+origins = [
+    "http://localhost:3000",                     # local Next dev
+    "https://ai-video-detector-eight.vercel.app/",   # your Vercel URL (replace later)
+    "https://pulverisable-uncombable-kent.ngrok-free.dev",
+]
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # 1) Load model once at startup (image deepfake detector)
 MODEL_NAME = "prithivMLmods/Deepfake-Detect-Siglip2"  # fake / real 
